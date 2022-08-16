@@ -20,17 +20,18 @@
 
                 <Entry x:Name="txt_NomeProduto"/>
 
-                <Label Text="Preço estimado:"
+                <Label Text="Quantidade:"
                        FontSize="Body"
                        FontAttributes="Bold"/>
 
-                <Entry x:Name="txt_ValorEstimado"/>
+                <Entry x:Name="txt_Quantidade"/>
 
-                <Label Text="Preço pago:"
+                <Label Text="Preço:"
                        FontSize="Body"
                        FontAttributes="Bold"/>
 
-                <Entry x:Name="txt_ValorPago"/>
+                <Entry x:Name="txt_Preco"/>
+
 
                 <Button Text="Adicionar"
                         Clicked="CadastroProduto"/>

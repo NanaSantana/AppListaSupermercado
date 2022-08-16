@@ -3,13 +3,39 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppListaSupermercado.View.ListaProdutos">
     <ContentPage.Content>
-        <StackLayout>
-            
-            <Button
-                Text="adicionar produto" Clicked="Btn_formProduto"/>
 
-            
+        <StackLayout BackgroundColor="LightGray">
 
+            <Label Text="Cadastro de produtos"
+               HorizontalOptions="CenterAndExpand"
+               FontSize="Title" FontAttributes="Bold"/>
+
+            <StackLayout BackgroundColor="WhiteSmoke" Margin="10" Padding="5">
+
+
+                <SearchBar x:Name="txtBusca"
+                           Placeholder="Pesquisar Produto"/>
+
+                <Button
+                    Text="adicionar produto" Clicked="Btn_formProduto"/>
+
+                <ListView x:Name="lstProdutos" ItemSelected="lstProdutos_ItemSelected">
+                    <ListView.Header>
+                        <Grid RowDefinitions="Auto"
+                              ColumnDefinitions="*, Auto, Auto, Auto">
+                            <Label Grid.Row="0" Grid.Column="0" Text="Descrição"/>
+                            <Label Grid.Row="0" Grid.Column="1" Text="Qnt"/>
+                            <Label Grid.Row="0" Grid.Column="2" Text="Preço"/>
+                            <Label Grid.Row="0" Grid.Column="3" Text="P. Total"/>
+
+                        </Grid>
+                    </ListView.Header>
+
+
+                </ListView>
+
+            </StackLayout>
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>

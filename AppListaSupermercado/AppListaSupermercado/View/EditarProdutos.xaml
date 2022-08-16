@@ -30,8 +30,6 @@
 
                 <Entry x:Name="txt_ValorPago"/>
 
-                <Button Text="Adicionar"
-                        Clicked="CadastroProduto"/>
 
             </StackLayout>
 
