@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppListaSupermercado.View.EditarProdutos">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="LightGray">
+
+            <Label Text="Editar Produto"
+               HorizontalOptions="CenterAndExpand"
+               FontSize="Title" FontAttributes="Bold"
+               Padding="10"/>
+
+            <StackLayout BackgroundColor="WhiteSmoke" Margin="10" Padding="10">
+
+                <Label Text="Nome:"
+                       FontSize="Body"
+                       FontAttributes="Bold"/>
+
+                <Entry x:Name="txt_NomeProduto"/>
+
+                <Label Text="Preço estimado:"
+                       FontSize="Body"
+                       FontAttributes="Bold"/>
+
+                <Entry x:Name="txt_ValorEstimado"/>
+
+                <Label Text="Preço pago:"
+                       FontSize="Body"
+                       FontAttributes="Bold"/>
+
+                <Entry x:Name="txt_ValorPago"/>
+
+                <Button Text="Adicionar"
+                        Clicked="CadastroProduto"/>
+
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
