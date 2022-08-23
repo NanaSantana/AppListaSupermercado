@@ -2,6 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppListaSupermercado.View.ListaProdutos">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Somar" Clicked="ToolbarItem_Clicked_Somar"/>
+        <ToolbarItem Text="Novo" Clicked="ToolbarItem_Clicked_Novo"/>
+    </ContentPage.ToolbarItems>
+    
     <ContentPage.Content>
 
         <StackLayout BackgroundColor="LightGray">
@@ -14,25 +20,43 @@
 
 
                 <SearchBar x:Name="txtBusca"
-                           Placeholder="Pesquisar Produto"/>
+                           Placeholder="Pesquisar Produto"
+                           TextChanged="txt_Busca_TextChanged"/>
 
                 <Button
                     Text="adicionar produto" Clicked="Btn_formProduto"/>
 
-                <ListView x:Name="lstProdutos" ItemSelected="lstProdutos_ItemSelected">
-                    <ListView.Header>
-                        <Grid RowDefinitions="Auto"
-                              ColumnDefinitions="*, Auto, Auto, Auto">
-                            <Label Grid.Row="0" Grid.Column="0" Text="Descrição"/>
-                            <Label Grid.Row="0" Grid.Column="1" Text="Qnt"/>
-                            <Label Grid.Row="0" Grid.Column="2" Text="Preço"/>
-                            <Label Grid.Row="0" Grid.Column="3" Text="P. Total"/>
+                <RefreshView x:Name="ref_carregando" IsRefreshing="False">
+                    <ListView x:Name="lst_produtos" ItemSelected="lst_produtos_ItemSelected">
+                        <ListView.Header>
+                            <Grid RowDefinitions="Auto"
+                                  ColumnDefinitions="*, Auto, Auto">
 
-                        </Grid>
-                    </ListView.Header>
+                                <Label Grid.Row="0" Grid.Column="0" Text="Descrição"/>
+                                <Label Grid.Row="0" Grid.Column="1" Text="Qnt"/>
+                                <Label Grid.Row="0" Grid.Column="2" Text="Preço"/>
+                                <Label Grid.Row="0" Grid.Column="3" Text="P. Total"/>
+                            </Grid>
+                        </ListView.Header>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.ContextActions>
+                                        <MenuItem Text="Remover" Clicked="MenuItem_Clicked"/>
+                                    </ViewCell.ContextActions>
 
-
-                </ListView>
+                                    <Grid RowDefinitions="Auto"
+                                          ColumnDefinitions="*, Auto, Auto">
+                                        <Label Grid.Row="0" Grid.Column="0" Text="{Binding NomeProduto}"/>
+                                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Quantidade}"/>
+                                        <Label Grid.Row="0" Grid.Column="2" Text="{Binding PrecoUnitario}"/>
+                                        <Label Grid.Row="0" Grid.Column="3" Text="{Binding PrecoTotal}"/>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </RefreshView>
 
             </StackLayout>
         </StackLayout>
