@@ -16,5 +16,7 @@ namespace AppListaSupermercado.View
         {
             InitializeComponent();
         }
+
+
     }
 }
