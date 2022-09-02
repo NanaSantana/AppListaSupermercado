@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 ﻿using System.Linq;
+=======
+﻿using AppListaSupermercado.Model;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+>>>>>>> d243d1197798502e0d5da5a5cf64d50ea241a622
 using System.Text;
 using System.Threading.Tasks;
 using AppListaSupermercado.Model;
@@ -101,6 +109,49 @@ namespace AppListaSupermercado.View
             {
                 BindingContext = (Produto)e.SelectedItem
             });
+        }
+
+        private void lts_produtos_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+
+        }
+
+        private void MenuItem_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ToolbarItem_Clicked_Somar(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ToolbarItem_Clicked_Novo(object sender, EventArgs e)
+        {
+            try
+            {
+                Navigation.PushAsync(new NovoProduto());
+            } catch(Exception ex)
+            {
+                DisplayAlert("Ops", ex.Message, "Ok");
+            }
+
+        }
+
+        private void txt_Busca_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        protected override void OnAppearing()
+        {
+            if (lista_produtos.Count == 0)
+            {
+                System.Threading.Tasks.Task.Run(async() =>
+                {
+                    List<Produto> temp = await App.Database.GetAll();
+                } //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            }
         }
     }
 }
