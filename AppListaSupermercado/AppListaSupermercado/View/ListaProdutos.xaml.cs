@@ -1,21 +1,12 @@
-<<<<<<< HEAD
 ﻿using System.Linq;
-=======
 ﻿using AppListaSupermercado.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
->>>>>>> d243d1197798502e0d5da5a5cf64d50ea241a622
-using System.Text;
-using System.Threading.Tasks;
-using AppListaSupermercado.Model;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Threading.Tasks;
+using System.Text;
 
 namespace AppListaSupermercado.View
 {
@@ -28,6 +19,8 @@ namespace AppListaSupermercado.View
             InitializeComponent();
 
             lst_produtos.ItemsSource = lista_produtos;
+
+
         }
 
         private void ToolbarItem_Clicked_Novo(object sender, EventArgs e)
@@ -41,6 +34,10 @@ namespace AppListaSupermercado.View
             }
         }
 
+        /**
+         * Método que faz a soma dos itens da ObservableCollection, isto é,
+         * a soma do subtotal (preco x quantidade) de cada um dos itens do array de objetos
+         */
         private void ToolbarItem_Clicked_Somar(object sender, EventArgs e)
         {
             double soma = lista_produtos.Sum(i => i.PrecoUnitario * i.Quantidade);
@@ -84,6 +81,9 @@ namespace AppListaSupermercado.View
             }
         }
 
+        /**
+         * Trata o evento TextChanged da SearchBar recebendo os novos valores digitados
+         */
         private void txt_Busca_TextChanged(object sender, TextChangedEventArgs e)
         {
             string buscou = e.NewTextValue;
@@ -109,49 +109,6 @@ namespace AppListaSupermercado.View
             {
                 BindingContext = (Produto)e.SelectedItem
             });
-        }
-
-        private void lts_produtos_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-
-        }
-
-        private void MenuItem_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ToolbarItem_Clicked_Somar(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ToolbarItem_Clicked_Novo(object sender, EventArgs e)
-        {
-            try
-            {
-                Navigation.PushAsync(new NovoProduto());
-            } catch(Exception ex)
-            {
-                DisplayAlert("Ops", ex.Message, "Ok");
-            }
-
-        }
-
-        private void txt_Busca_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        protected override void OnAppearing()
-        {
-            if (lista_produtos.Count == 0)
-            {
-                System.Threading.Tasks.Task.Run(async() =>
-                {
-                    List<Produto> temp = await App.Database.GetAll();
-                } //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            }
         }
     }
 }

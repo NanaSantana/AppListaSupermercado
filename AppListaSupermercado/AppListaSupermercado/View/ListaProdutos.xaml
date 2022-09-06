@@ -19,7 +19,7 @@
             <StackLayout BackgroundColor="WhiteSmoke" Margin="10" Padding="5">
 
 
-                <SearchBar x:Name="txtBusca"
+                <SearchBar x:Name="txt_Busca"
                            Placeholder="Pesquisar Produto"
                            TextChanged="txt_Busca_TextChanged"/>
 
@@ -30,12 +30,12 @@
                     <ListView x:Name="lst_produtos" ItemSelected="lst_produtos_ItemSelected">
                         <ListView.Header>
                             <Grid RowDefinitions="Auto"
-                                  ColumnDefinitions="*, Auto, Auto">
+                                  ColumnDefinitions="150, *, *, *">
 
-                                <Label Grid.Row="0" Grid.Column="0" Text="Descrição"/>
-                                <Label Grid.Row="0" Grid.Column="1" Text="Qnt"/>
-                                <Label Grid.Row="0" Grid.Column="2" Text="Preço"/>
-                                <Label Grid.Row="0" Grid.Column="3" Text="P. Total"/>
+                                <Label Grid.Row="0" Grid.Column="0" Text="Descrição"   FontAttributes="Bold"/>
+                                <Label Grid.Row="0" Grid.Column="1" Text="Qnt"         FontAttributes="Bold"/>
+                                <Label Grid.Row="0" Grid.Column="2" Text="Preço"       FontAttributes="Bold"/>
+                                <Label Grid.Row="0" Grid.Column="3" Text="Preço Total" FontAttributes="Bold"/>
                             </Grid>
                         </ListView.Header>
                         <ListView.ItemTemplate>
@@ -45,8 +45,8 @@
                                         <MenuItem Text="Remover" Clicked="MenuItem_Clicked"/>
                                     </ViewCell.ContextActions>
 
-                                    <Grid RowDefinitions="Auto"
-                                          ColumnDefinitions="*, Auto, Auto">
+                                    <Grid RowDefinitions="*"
+                                          ColumnDefinitions="150, *, *, *">
                                         <Label Grid.Row="0" Grid.Column="0" Text="{Binding NomeProduto}"/>
                                         <Label Grid.Row="0" Grid.Column="1" Text="{Binding Quantidade}"/>
                                         <Label Grid.Row="0" Grid.Column="2" Text="{Binding PrecoUnitario}"/>
